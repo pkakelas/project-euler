@@ -14,5 +14,5 @@ int main() {
 }
  	printf("The integer i am looking for is %d\n", sum);
  
-  return 0;
+	return 0;
 }
