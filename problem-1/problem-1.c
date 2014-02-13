@@ -2,16 +2,15 @@
  
 int main() {
  	
-	int a,b,c,sum=0;
+	int counter;
+    int sum = 0;
 	
-	while (a<1000) {
-	b=a % 3  ;
-	c=a % 5  ;
-	if (b==0 || c==0) {
-	sum=sum+a ;
-	}
-	a = a+1 ;	
-}
+    for ( counter = 1; $counter < 1000; counter++ ) {
+         if ( counter % 3 == 0 || counter % 5 == 0 ) {
+            sum += counter;
+         }
+    }
+
  	printf("The integer i am looking for is %d\n", sum);
  
 	return 0;
