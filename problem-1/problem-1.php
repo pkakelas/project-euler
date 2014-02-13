@@ -1,13 +1,9 @@
 <?php
-$sum=0 ;
-$a=1 ;
-while ($a<1000) {
-	$b=fmod($a, 3) ;
-	$c=fmod($a, 5) ;
-	if ($b==0 or $c==0) {
-	$sum=$sum+$a ;
-	}
-	$a = $a+1 ;	
-}
-echo $sum ;
+    $sum=0;
+    for ( $counter = 1; $counter < 1000; $counter++ ) {
+         if ( $counter % 3 == 0 || $counter % 5 == 0 ) {
+            $sum += $counter;
+         }
+    }
+    echo $sum;
 ?>
