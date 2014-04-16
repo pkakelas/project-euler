@@ -1,9 +1,17 @@
-def isPalindrome( num ):
+def isPalindrome(num):
     chars = []
     for char in num:
-        chars.append( char )
-    inv = ''.join( num[ ::-1 ] )
+        chars.append(char)
+    inv = ''.join(num[::-1])
     if num == inv:
         return True
 
-if isPalindrome( '1221' ):
+for num1 in range(100,1000):
+    for num2 in range(100,1000):
+        last = num1 * num2  
+        if isPalindrome(str(last)):
+            king = last
+            
+print king 
+
+            
