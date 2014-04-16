@@ -1,8 +1,8 @@
-import eratosthenes
+import primes 
 
 factors = []
 num = 600851475143 
-primes = eratosthenes.primes( 10000 )
+primes = primes.primes( 10000 )
 for prime in primes:
     while num % prime == 0:
         num = num / prime
