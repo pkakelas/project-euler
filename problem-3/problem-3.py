@@ -1,3 +1,5 @@
+import sys
+sys.path.append('helpers')
 import primes 
 
 factors = []
@@ -7,5 +9,4 @@ for prime in primes:
     while num % prime == 0:
         num = num / prime
         factors.append( prime )
-print factors 
-
+print factors[-1] 
