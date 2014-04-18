@@ -9,11 +9,10 @@ for i in range(1, 996):
 
 for candidate in candidates:
     product = 1 
-    if '0' not in candidate:
-        for digit in candidate:
-            product *= int(digit)
-        if product > king:
-            king = product
+    for digit in candidate:
+        product *= int(digit)
+    if product > king:
+        king = product
 
 print king
     
