@@ -1,5 +1,5 @@
 primes = [2, 3, 5]
-candidate =primes[-1] 
+candidate = primes[-1] 
 while len(primes) < 10002:
     isPrime = True
     for witness in primes:
