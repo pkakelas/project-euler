@@ -24,7 +24,9 @@ def under1000000(num):
     if num < 10000:
         if num % 1000 == 0:
             return thousands 
-        return thousands + ' ' + under1000( int(''.join(array[1:])))
+        return thousands + ' ' + number(int(''.join(array[1:])))
+    if num < 100000:
+        return number(int(''.join(array[0:2]))) + ' thousand ' + number(int(''.join(array[2:])))
 
 def number(num):
     if num in range(1, 100):
@@ -34,5 +36,5 @@ def number(num):
     if num in range(1000, 1000000):
         return under1000000(num)
         
-print number(4232)
+print number(7897)
 
