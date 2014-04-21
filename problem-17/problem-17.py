@@ -1,16 +1,38 @@
-n1, n2, n3, n4, n5, n6, n7, n8, n9, n10, n11, n12, n13, n14, n15, n16, n17, n18, n19 = 3, 3, 5, 4, 4, 3, 5, 5, 4, 3, 6, 6, 8, 8, 8, 7, 9, 8, 8
-n20, n30, n40, n50, n60, n70, n80, n90, n100, n1000, nmil = 6, 6, 5, 5, 5, 7, 6, 6, 7, 8, 7 
+nums = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
+tens = ['twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
 
-def lu100(num):
-    num = list(str(num))
-    first = 'n' + num[0] + '0'
-    try:
-        num[1]
-    except:
-        num = 'n' + num[0]
-        return num 
-    second = 'n' + num[1] 
-    return first + second
+def under100(num):
+    array = list(str(num))
+    if num < 100:
+        if num < 20:
+            return nums[num]
+        if num % 10 == 0:
+            return tens[int(array[0]) - 2]
+        return tens[int(array[0]) - 2] + '-' + nums[int(array[1])]
 
-print lu100(24)
+def under1000(num):
+    array = list(str(num))
+    hundreds = nums[int(array[0])] + ' ' + 'hundred'
+
+    if num % 100 == 0:
+        return hundreds
+    return hundreds + ' and ' + under100(int(str(num)[1:]))
+
+def under1000000(num):
+    array = list(str(num))
+    thousands = nums[int(array[0])] + ' ' + 'thousand'
+    if num < 10000:
+        if num % 1000 == 0:
+            return thousands 
+        return thousands + ' ' + under1000( int(''.join(array[1:])))
+
+def number(num):
+    if num in range(1, 100):
+        return under100(num)
+    if num in range(100, 1000):
+        return under1000(num)
+    if num in range(1000, 1000000):
+        return under1000000(num)
+        
+print number(4232)
 
