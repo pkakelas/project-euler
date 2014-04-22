@@ -16,17 +16,24 @@ def under1000(num):
 
     if num % 100 == 0:
         return hundreds
-    return hundreds + ' and ' + under100(int(str(num)[1:]))
+    return hundreds + ' and ' + number(int(str(num)[1:]))
 
 def under1000000(num):
     array = list(str(num))
-    thousands = nums[int(array[0])] + ' ' + 'thousand'
     if num < 10000:
+        thousands = nums[int(array[0])] + ' thousand'
         if num % 1000 == 0:
             return thousands 
         return thousands + ' ' + number(int(''.join(array[1:])))
     if num < 100000:
-        return number(int(''.join(array[0:2]))) + ' thousand ' + number(int(''.join(array[2:])))
+        thousands = number(int(''.join(array[:2]))) + ' thousand' 
+        if num % 10000 == 0:
+            return thousands 
+        return thousands + ' ' + number(int(''.join(array[2:])))
+    thousands = number(int(''.join(array[:3]))) + ' thousand' 
+    if num % 100000 == 0:
+        return thousands 
+    return thousands + ' ' + number(int(''.join(array[3:])))
 
 def number(num):
     if num in range(1, 100):
@@ -36,5 +43,15 @@ def number(num):
     if num in range(1000, 1000000):
         return under1000000(num)
         
-print number(7897)
+def length(string):
+    counter = 0
+    for i in string:
+        if '-' not in i:
+            if i.isspace() != True:
+                counter += 1
+    return counter
 
+counter = 0
+for num in range(1, 1000001):
+    counter += length(number(num))
+    print num
